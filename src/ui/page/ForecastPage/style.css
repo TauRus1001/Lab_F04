@@ -1,0 +1,31 @@
+*{
+    background-color: #283437;
+}
+table img{
+    ;
+}
+#refresh-btn-div{
+    width: 48px;
+    height: 48px;
+    border: 2px solid white;
+    border-radius: 8px;
+    background-color: #9A9A9B;
+}
+#refresh-btn{
+    width: 35px;
+    height: 35px;
+    margin: 5px;
+    border: 2px solid #9A9A9B;
+    border-radius: 8px;
+    background-color: #9A9A9B;
+    background-image: url("./image/reload.png");
+    background-size: 100%,contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: 1s;
+}
+#refresh-btn:hover{
+    cursor:pointer;
+    rotate: 360deg;
+
+}
