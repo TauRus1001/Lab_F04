@@ -2,7 +2,7 @@
     background-color: #283437;
 }
 table img{
-    ;
+    background-color: transparent;
 }
 #refresh-btn-div{
     width: 48px;
@@ -11,6 +11,7 @@ table img{
     border-radius: 8px;
     background-color: #9A9A9B;
 }
+
 #refresh-btn{
     width: 35px;
     height: 35px;
@@ -27,5 +28,4 @@ table img{
 #refresh-btn:hover{
     cursor:pointer;
     rotate: 360deg;
-
 }

@@ -1,10 +1,31 @@
 import {ForecastDto} from "../../../../data/openWeatherForecastData.ts";
+import {format} from "date-fns";
+import {Spinner} from "react-bootstrap";
 
 type Props ={
-  forecastDto: ForecastDto
+  forecastDto: ForecastDto | undefined,
+  isLoading: boolean,
+  updateTime: Date | undefined,
+  handleRefresh:()=>void
 }
 
-export default function ForecastHeader({forecastDto}:Props){
+export default function ForecastHeader({forecastDto,isLoading,updateTime,handleRefresh}:Props){
+  const renderUpdateTime = ()=>{
+    if(isLoading || !updateTime) {
+      return "幫緊你幫緊你"
+    }else{
+        return format(updateTime, "yyyy/MM/dd HH:mm:ss")
+      }
+    }
+
+  const renderCityName = ()=>{
+  if(isLoading || !updateTime || !forecastDto) {
+    return <Spinner animation="grow" variant="light"/>
+  }else{
+      return forecastDto.city.name
+    }
+  }
+
   return(
     <>
       <div className="mt-3">
@@ -13,9 +34,9 @@ export default function ForecastHeader({forecastDto}:Props){
             <div className="d-flex">
               <div className="text-white text-end me-2">
                 Last Update Time:<br/>
-                10/10/2025 10:25:00
+                {renderUpdateTime()}
               </div>
-              <div id="refresh-btn-div">
+              <div id="refresh-btn-div" onClick={handleRefresh}>
                 <div id="refresh-btn"></div>
               </div>
             </div>
@@ -23,7 +44,7 @@ export default function ForecastHeader({forecastDto}:Props){
         <h2
           className="fst-italic fw-light"
           style={{color:"#B6C5C8"}}>
-          {forecastDto.city.name}
+          {renderCityName()}
         </h2>
       </div>
     </>

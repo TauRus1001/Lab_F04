@@ -11,7 +11,7 @@ export default function ForecastTableRow({list}:Props){
       <tr>
           <td>{format(fromUnixTime(list.dt),"yyyy/MM/dd")}</td>
           <td>{format(fromUnixTime(list.dt),"HH:mm")}</td>
-          <td>{`${list.main.temp_min}/${list.main.temp_max}`}</td>
+          <td>{`${list.main.temp_min} / ${list.main.temp_max}`}</td>
           <td>{list.main.humidity}%</td>
           <td>
             <img
