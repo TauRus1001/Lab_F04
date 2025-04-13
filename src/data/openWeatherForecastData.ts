@@ -10,6 +10,7 @@ export interface ListItem {
     dt:         number;
     main:       Main;
     weather:    Weather[];
+    dt_text:    string;
 }
 
 export interface Main {
